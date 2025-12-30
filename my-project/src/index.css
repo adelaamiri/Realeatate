@@ -1,0 +1,25 @@
+/* src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gray-900 text-white;
+  }
+}
+
+@layer components {
+  .glass-effect {
+    @apply backdrop-blur-md bg-white/10 border border-white/20 shadow-lg;
+  }
+
+  .glass-card {
+    @apply backdrop-blur-lg bg-white/10 border border-white/20 shadow-xl;
+  }
+
+  .glass-nav {
+    @apply backdrop-blur-xl bg-white/5 border border-white/15 shadow-2xl;
+  }
+}
+@import "leaflet/dist/leaflet.css";
