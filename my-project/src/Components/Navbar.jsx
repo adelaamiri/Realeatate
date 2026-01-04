@@ -1,5 +1,6 @@
 import { useState } from "react";
 import logo from "../assets/logo1.jpg";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -21,17 +22,19 @@ export default function Navbar() {
           <li>Dashboard</li>
         </ul>
 
-        {/* LOGIN BUTTON (DESKTOP) */}
-        <button
-          className="hidden md:block glass-nav px-7 py-2 rounded-full text-sm font-medium
-                     text-sky-700 bg-sky-400/30 border border-sky-300/40
-                     backdrop-blur-md transition-all duration-300
-                     hover:bg-sky-500/40 hover:text-sky-900 hover:border-sky-400"
-        >
-          Login
-        </button>
+        {/* LOGIN (DESKTOP) */}
+        <Link to="/login" className="hidden md:block">
+          <button
+            className="glass-nav px-7 py-2 rounded-full text-sm font-medium
+                       text-sky-700 bg-sky-400/30 border border-sky-300/40
+                       backdrop-blur-md transition-all duration-300
+                       hover:bg-sky-500/40 hover:text-sky-900 hover:border-sky-400"
+          >
+            Login
+          </button>
+        </Link>
 
-        {/* HAMBURGER (MOBILE) */}
+        {/* HAMBURGER */}
         <button
           onClick={() => setOpen(!open)}
           className="md:hidden text-3xl text-gray-800"
@@ -44,18 +47,20 @@ export default function Navbar() {
       {open && (
         <div className="md:hidden mt-4 glass-nav rounded-2xl py-6 shadow-xl">
           <ul className="flex flex-col items-center gap-6 text-gray-800 font-medium">
-            <li onClick={() => setOpen(false)}>Home</li>
             <li onClick={() => setOpen(false)}>About</li>
             <li onClick={() => setOpen(false)}>Contact</li>
             <li onClick={() => setOpen(false)}>Buy & Sell</li>
             <li onClick={() => setOpen(false)}>Dashboard</li>
 
-            <button
-              className="mt-2 glass-nav px-8 py-2 rounded-full text-sm font-medium
-                         text-sky-700 bg-sky-400/30 border border-sky-300/40"
-            >
-              Login
-            </button>
+            {/* LOGIN (MOBILE) */}
+            <Link to="/login" onClick={() => setOpen(false)}>
+              <button
+                className="mt-2 glass-nav px-8 py-2 rounded-full text-sm font-medium
+                           text-sky-700 bg-sky-400/30 border border-sky-300/40"
+              >
+                Login
+              </button>
+            </Link>
           </ul>
         </div>
       )}

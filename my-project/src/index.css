@@ -1,4 +1,5 @@
 /* src/index.css */
+@import "leaflet/dist/leaflet.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -22,4 +23,3 @@
     @apply backdrop-blur-xl bg-white/5 border border-white/15 shadow-2xl;
   }
 }
-@import "leaflet/dist/leaflet.css";
